@@ -11,7 +11,7 @@
 | first_name           | string | null: false               |
 | last_name_kana       | string | null: false               |
 | first_name_kana      | string | null: false               |
-| birthday             | string | null: false               |
+| birthday             | date   | null: false               |
 
 
 ### Association
@@ -21,17 +21,17 @@
 
 ## items テーブル
 
-| Column            | Type       | Options                        |
-| ----------------- | ---------- | ------------------------------ |
-| user              | references | null: false, foreign_key: true |
-| name              | string     | null: false                    |
-| price             | integer    | null: false                    |
-| text              | text       | null: false                    |
-| category_id       | integer    | null: false                    |
-| status_id         | integer    | null: false                    |
-| delivery_fee_id   | integer    | null: false                    |
-| shipment_source_id| integer    | null: false                    |
-| ship_days_id      | integer    | null: false                    |
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| user            | references | null: false, foreign_key: true |
+| name            | string     | null: false                    |
+| price           | integer    | null: false                    |
+| text            | text       | null: false                    |
+| category_id     | integer    | null: false                    |
+| status_id       | integer    | null: false                    |
+| delivery_fee_id | integer    | null: false                    |
+| prefecture_id   | integer    | null: false                    |
+| ship_days_id    | integer    | null: false                    |
 
 ### Association
 
