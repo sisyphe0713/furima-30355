@@ -31,7 +31,7 @@
 | status_id       | integer    | null: false                    |
 | delivery_fee_id | integer    | null: false                    |
 | prefecture_id   | integer    | null: false                    |
-| ship_days_id    | integer    | null: false                    |
+| ship_day_id     | integer    | null: false                    |
 
 ### Association
 
