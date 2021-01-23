@@ -14,8 +14,8 @@ FactoryBot.define do
 
     last_name {"全角"} #Fakerで全角の出力があるとよいのだが
     first_name {"全角"} #Fakerで全角の出力があるとよいのだが
-    last_name_kana {"ぜんかく"} #Fakerで全角の出力があるとよいのだが
-    first_name_kana {"ぜんかく"} #Fakerで全角の出力があるとよいのだが
+    last_name_kana {"ゼンカク"} #Fakerで全角の出力があるとよいのだが
+    first_name_kana {"ゼンカク"} #Fakerで全角の出力があるとよいのだが
 
     birthday {Faker::Date.birthday}
   end

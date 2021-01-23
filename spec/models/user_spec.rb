@@ -60,6 +60,13 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
 
+    it "passwordとpassword_confirmationが一致していないと登録できない" do
+      @user.password = "abc123"
+      @user.password_confirmation = "123abc"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+    end
+
     it "重複したemailが存在する場合登録できない" do
       @user.save
       another_user = FactoryBot.build(:user)
@@ -87,13 +94,13 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("First name is invalid")
     end
 
-    it "last_name_kanaが全角でないと登録できない" do
+    it "名字のフリガナは、全角カタカナでないと登録できない" do
       @user.last_name_kana = "Yamada"
       @user.valid?
       expect(@user.errors.full_messages).to include("Last name kana is invalid")
     end
 
-    it "first_name_kanaが全角でないと登録できない" do
+    it "名前のフリガナは、全角カタカナでないと登録できない" do
       @user.first_name_kana = "Taro"
       @user.valid?
       expect(@user.errors.full_messages).to include("First name kana is invalid")
