@@ -11,5 +11,18 @@ class Item < ApplicationRecord
     validates :delivery_fee_id
     validates :prefecture_id
     validates :ship_day_id
+    validates :image
+  end
+
+  # ActiveHashを用いたもの
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :category, :status, :delivery_fee, :prefecture, :ship_day
+
+  with_options numericality: { other_than: 1 } do
+    validates :category_id
+    validates :status_id
+    validates :delivery_fee_id
+    validates :prefecture_id
+    validates :ship_day_id
   end
 end
