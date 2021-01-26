@@ -4,7 +4,12 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
+    if user_signed_in? != true
+      redirect_to root_path
+    else
+      @item = Item.new
+      render :new
+    end
   end
 
   def create
