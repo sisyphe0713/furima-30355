@@ -1,11 +1,10 @@
 class ItemsController < ApplicationController
-
   def index
   end
 
   def new
     if user_signed_in? != true
-      redirect_to root_path
+      redirect_to user_session_path
     else
       @item = Item.new
       render :new
@@ -13,7 +12,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # Item.create(item_params)
     @item = Item.new(item_params)
     if @item.save
       redirect_to root_path

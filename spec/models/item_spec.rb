@@ -84,6 +84,49 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Price is not a number")
       end
+
+      it "販売価格が半角英数混合だと登録できない" do
+        @item.price = "3 handred"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price is not a number")
+      end
+
+      it "販売価格が半角英語だと登録できない" do
+        @item.price = "three handred"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price is not a number")
+      end
+
+
+      it "カテゴリーが1( '--')以外でないと登録できない" do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category must be other than 1")
+      end
+
+      it "商品の状態が1( '--')以外でないと登録できない" do
+        @item.status_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Status must be other than 1")
+      end
+
+      it "配送料の負担が1( '--')以外でないと登録できない" do
+        @item.delivery_fee_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery fee must be other than 1")
+      end
+
+      it "配送元の地域が1( '--')以外でないとと登録できない" do
+        @item.prefecture_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
+      end
+
+      it "発送までの日数が1( '--')以外でないと登録できない" do
+        @item.ship_day_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Ship day must be other than 1")
+      end
     end
   end
 end
