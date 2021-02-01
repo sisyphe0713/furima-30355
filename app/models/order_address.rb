@@ -1,6 +1,6 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :post_code, :prefecture_id, :city, :address_number, :building, :telephone, :user_id, :item_id
+  attr_accessor :post_code, :prefecture_id, :city, :address_number, :building, :telephone, :user_id, :item_id, :token
   
   with_options presence: true do
     validates :post_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: "is invalid. Inclue hyphen(-)" }
@@ -8,6 +8,7 @@ class OrderAddress
     validates :city
     validates :address_number
     validates :telephone, format: { with: /\A\d{,11}\z/, message: "is less than 11 degit without hyphen(-)" }
+    validates :token
   end
 
   def save
