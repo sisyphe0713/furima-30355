@@ -23,7 +23,6 @@ class OrdersController < ApplicationController
       @order_address.save
       redirect_to root_path
     else
-      binding.pry
       render action: :index
     end
   end
