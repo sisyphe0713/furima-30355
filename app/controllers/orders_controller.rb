@@ -3,7 +3,6 @@ class OrdersController < ApplicationController
 
   def index
     if Order.find_by(item_id: params[:item_id]) == nil
-      binding.pry
       if current_user.id == Item.find(params[:item_id])[:user_id]
         redirect_to root_path
       else
