@@ -7,7 +7,7 @@ class OrderAddress
     validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
     validates :city
     validates :address_number
-    validates :telephone, format: { with: /\A\d{,11}\z/, message: "is less than 11 degit without hyphen(-)" }
+    validates :telephone, format: { with: /\A\d{,11}\z/, message: "must be less than 11 degit without hyphen(-)" }
     validates :token
   end
 
