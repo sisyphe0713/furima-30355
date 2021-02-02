@@ -8,6 +8,8 @@ class OrderAddress
     validates :city
     validates :address_number
     validates :telephone, format: { with: /\A\d{,11}\z/, message: "must be less than 11 degit without hyphen(-)" }
+    validates :user_id
+    validates :item_id
     validates :token
   end
 

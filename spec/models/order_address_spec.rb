@@ -54,9 +54,24 @@ RSpec.describe OrderAddress, type: :model do
       @order_address.valid?
       expect(@order_address.errors.full_messages).to include("Telephone must be less than 11 degit without hyphen(-)")
     end
+    it '電話番号telephoneが英数混合では保存できないこと' do
+      @order_address.telephone = "0901234567ab"
+      @order_address.valid?
+      expect(@order_address.errors.full_messages).to include("Telephone must be less than 11 degit without hyphen(-)")
+    end
     it 'buildingは空でも保存できること' do
       @order_address.building = nil
       expect(@order_address).to be_valid
+    end
+    it "user_idが空では登録できないこと" do
+      @order_address.user_id = nil
+      @order_address.valid?
+      expect(@order_address.errors.full_messages).to include("User can't be blank")
+    end
+    it "item_idが空では登録できないこと" do
+      @order_address.item_id = nil
+      @order_address.valid?
+      expect(@order_address.errors.full_messages).to include("Item can't be blank")
     end
     it "tokenが空では登録できないこと" do
       @order_address.token = nil
